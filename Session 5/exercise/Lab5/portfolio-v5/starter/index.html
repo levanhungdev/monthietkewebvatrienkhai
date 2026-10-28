@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ✏️ Thay [Họ tên SV] bằng tên thật của bạn -->
+  <title>Portfolio – Lê Văn Hùng</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========================================
+       BÀI TẬP A2.1 – FIT4014
+       Starter Code – Điền vào các chỗ (_____)
+
+       📌 HƯỚNG DẪN:
+       1. Làm phần trắc nghiệm trên PDF trước
+       2. Điền đáp án vào đúng vị trí trong file này
+       3. Thay tất cả [Họ tên SV], [Quê quán],
+          [Sở thích], [Mô tả bản thân] bằng thông tin thật
+       4. Xem bảng màu theo 2 số cuối MSSV trong PDF
+       ======================================== -->
+
+  <!-- ===== PHẦN 1: NAVIGATION =====
+       Câu 1: Dùng đúng thẻ ngữ nghĩa cho thanh điều hướng -->
+
+  <nav class="nav">
+    <div class="nav__container">
+      <!-- ✏️ Thay [Họ tên SV] bằng tên thật -->
+      <a href="#" class="nav__logo">Lê Văn Hùng</a>
+      <ul class="nav__menu">
+        <li><a href="#gioi-thieu">Giới thiệu</a></li>
+        <li><a href="#ky-nang">Kỹ năng</a></li>
+        <li><a href="#du-an">Dự án</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== PHẦN 2: NỘI DUNG CHÍNH =====
+       Câu 2: Bọc toàn bộ nội dung chính -->
+
+  <main class="main">
+
+    <!-- --- Hero --- -->
+    <!-- Câu 3: Thẻ chia phần logic -->
+    <section id="gioi-thieu" class="hero">
+      <!-- ✏️ Thay [Họ tên SV] bằng tên thật -->
+      <h1>Xin chào, tôi là <span class="hero__name">Lê Văn Hùng</span></h1>
+      <!-- ✏️ Thay [Quê quán] bằng quê thật, ví dụ: Hà Nội, Thanh Hóa... -->
+      <p class="hero__desc">Sinh viên ngành CNTT – Đại học Đại Nam | Quê: Bắc Ninh</p>
+      <a href="#du-an" class="btn">Xem dự án của tôi</a>
+    </section>
+
+    <!-- --- Giới thiệu bản thân --- -->
+    <section class="about">
+      <h2 class="section-title">Về tôi</h2>
+      <div class="about__content">
+        <!-- ✏️ Viết 2-3 câu giới thiệu bản thân (sở thích, mục tiêu nghề nghiệp...) -->
+        <p class="about__text">Tôi là Lê Văn Hùng, sinh viên ngành Công nghệ Thông tin – Đại học Đại Nam. Tôi yêu thích lập trình và thiết kế web. Mục tiêu của tôi là trở thành một developer chuyên nghiệp trong tương lai.</p>
+        <ul class="about__info">
+          <!-- ✏️ Điền thông tin cá nhân thật -->
+          <li><strong>Họ tên:</strong> Lê Văn Hùng</li>
+          <li><strong>MSSV:</strong> 2071020088 </li>
+          <li><strong>Quê quán:</strong> Bắc Ninh</li>
+          <li><strong>Sở thích:</strong> Lập trình, thiết kế web, đọc sách</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- --- Skills --- -->
+    <section id="ky-nang" class="skills">
+      <h2 class="section-title">Kỹ năng</h2>
+      <div class="skills__grid">
+        <!-- ✏️ Thay nội dung 3 kỹ năng theo thế mạnh thật của bạn -->
+        <div class="skill-card">
+          <span class="skill-card__icon">🌐</span>
+          <!-- ✏️ Thay tên và mô tả kỹ năng -->
+          <h3>HTML/CSS</h3>
+          <p>Tôi biết cách sử dụng HTML và CSS để tạo ra một giao diện tĩnh hoặc động trước khi muốn làm một dự án nào đó.</p>
+        </div>
+        <div class="skill-card">
+          <span class="skill-card__icon">🎨</span>
+          <h3>Tôi biết cách thiết kế giao diện người dùng user/admin</h3>
+          <p>Tôi có khả năng thiết kế giao diện người dùng thân thiện và hiệu quả cho cả người dùng cuối và quản trị viên.</p>
+        </div>
+        <div class="skill-card">
+          <span class="skill-card__icon">📱</span>
+          <h3>Biết làm ra một trang web hoàn chỉnh</h3>
+          <p>Tôi có khả năng xây dựng và phát triển các trang web hoàn chỉnh từ đầu đến cuối, bao gồm cả phần frontend và backend.</p>
+        </div>
+      </div>
+    </section> 
+
+    <!-- --- Projects --- -->
+    <section id="du-an" class="projects">
+      <h2 class="section-title">Dự án</h2>
+      <div class="projects__grid">
+
+        <!-- Câu 4: Thẻ cho mỗi project card -->
+        <div class="card">
+          <img src="https://picsum.photos/seed/p1/600/400"
+               alt="Ảnh minh họa dự án 1" class="card__img">
+          <div class="card__body">
+            <!-- ✏️ Thay tên và mô tả dự án -->
+            <h3>Portfolio bài tập</h3>
+            <p>Là trang giới thiệu cá nhân của tôi với html và css</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://picsum.photos/seed/p2/600/400"
+               alt="Ảnh minh họa dự án 2" class="card__img">
+          <div class="card__body">
+            <h3>Website bán hàng</h3>
+            <p>Là một trang web bán hàng trực tuyến với các chức năng cơ bản như xem sản phẩm, giỏ hàng, thanh toán.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://picsum.photos/seed/p3/600/400"
+               alt="Ảnh minh họa dự án 3" class="card__img">
+          <div class="card__body">
+            <h3>Website học Tiếng anh</h3>
+            <p>Là một trang web hỗ trợ học Tiếng anh với các chức năng như luyện tập ngữ pháp, từ vựng, và nghe nói.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== PHẦN 3: FOOTER =====
+       Câu 5: Thẻ chân trang -->
+  <footer class="footer">
+    <!-- ✏️ Thay [Họ tên SV] và [MSSV] -->
+    <p>&copy; 2025 Lê Văn Hùng – 2071020088 – FIT4014 Đại học Đại Nam</p>
+  </footer>
+
+</body>
+</html>

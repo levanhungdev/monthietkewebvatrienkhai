@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kết quả biểu mẫu</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      background-color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .result-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 2.5rem;
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .result-card h1 {
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+      color: #16a34a;
+    }
+
+    .result-card .subtitle {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+    }
+
+    .result-card table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .result-card th,
+    .result-card td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 0.9rem;
+    }
+
+    .result-card th {
+      width: 30%;
+      color: #475569;
+      font-weight: 600;
+    }
+
+    .result-card td {
+      color: #1e293b;
+      word-break: break-word;
+    }
+
+    .note {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1rem;
+      background-color: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: #92400e;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div class="result-card">
+    <h1>Biểu mẫu hợp lệ</h1>
+    <p class="subtitle">Dữ liệu đã qua kiểm tra HTML5 — hiển thị từ chuỗi truy vấn URL.</p>
+
+    <table>
+      <tr>
+        <th>Họ tên</th>
+        <td id="val-name">—</td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td id="val-email">—</td>
+      </tr>
+      <tr>
+        <th>Nội dung</th>
+        <td id="val-message">—</td>
+      </tr>
+    </table>
+
+    <div class="note">
+      Đây là trang mô phỏng kết quả. Không có email nào được gửi, không có dữ liệu nào được lưu.
+      Nếu mở trực tiếp trang này (không qua form), các ô sẽ hiển thị "—".
+    </div>
+
+    <a href="index.html" class="back-link">&larr; Quay lại form</a>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const fields = { fullname: "val-name", email: "val-email", message: "val-message" };
+    for (const [key, id] of Object.entries(fields)) {
+      const value = params.get(key);
+      if (value) {
+        document.getElementById(id).textContent = decodeURIComponent(value);
+      }
+    }
+  </script>
+
+</body>
+</html>

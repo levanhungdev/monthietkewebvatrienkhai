@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio – Nguyễn Văn A</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="nav__container">
+      <a href="#" class="nav__logo">Portfolio</a>
+      <ul class="nav__menu">
+        <li><a href="#gioi-thieu">Giới thiệu</a></li>
+        <li><a href="#du-an">Dự án</a></li>
+        <li><a href="#lien-he">Liên hệ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="gioi-thieu" class="hero">
+    <h1>Xin chào, tôi là <span class="hero__name">Nguyễn Văn A</span></h1>
+    <p>Sinh viên ngành Công nghệ Thông tin – Đại học Đại Nam</p>
+    <a href="#du-an" class="btn">Xem dự án</a>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="du-an" class="projects">
+    <h2 class="section-title">Dự án</h2>
+    <div class="projects__grid">
+
+      <div class="card">
+        <img src="https://picsum.photos/seed/proj1/600/400" alt="Ảnh minh họa dự án Calculator" class="card__img">
+        <div class="card__body">
+          <h3>Calculator App</h3>
+          <p>Ứng dụng máy tính đơn giản bằng HTML, CSS và JavaScript.</p>
+          <a href="#" class="card__link">Xem chi tiết</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://picsum.photos/seed/proj2/600/400" alt="Ảnh minh họa dự án Weather" class="card__img">
+        <div class="card__body">
+          <h3>Weather Dashboard</h3>
+          <p>Trang theo dõi thời tiết, lấy dữ liệu từ API công khai.</p>
+          <a href="#" class="card__link">Xem chi tiết</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://picsum.photos/seed/proj3/600/400" alt="Ảnh minh họa dự án Todo" class="card__img">
+        <div class="card__body">
+          <h3>Todo List</h3>
+          <p>Quản lý công việc cá nhân với giao diện tối giản.</p>
+          <a href="#" class="card__link">Xem chi tiết</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CONTACT FORM ===== -->
+  <!-- TODO: Hoàn thiện form theo yêu cầu Lab 5B -->
+  <section id="lien-he" class="contact">
+    <h2 class="section-title">Liên hệ</h2>
+
+    <form class="form" action="ket-qua.html" method="get">
+
+      <div class="form__group">
+        <!-- TODO: Thêm label, required, minlength, maxlength -->
+        <input type="text" placeholder="Họ và tên">
+      </div>
+
+      <div class="form__group">
+        <!-- TODO: Thêm label, required, type phù hợp, aria-describedby -->
+        <input type="text" placeholder="Email">
+      </div>
+
+      <div class="form__group">
+        <!-- TODO: Thêm label, required, minlength, maxlength, aria-describedby -->
+        <textarea rows="5" placeholder="Nội dung liên hệ"></textarea>
+      </div>
+
+      <button type="submit" class="btn" disabled>Kiểm tra biểu mẫu</button>
+
+    </form>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>&copy; 2025 Nguyễn Văn A – FIT4014 Đại học Đại Nam</p>
+  </footer>
+
+</body>
+</html>
