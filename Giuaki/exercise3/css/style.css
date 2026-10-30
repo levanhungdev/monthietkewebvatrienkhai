@@ -1,0 +1,400 @@
+/* Thiết lập chung & Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-text: #1e293b;
+    --color-text-muted: #64748b;
+    --color-bg: #f8fafc;
+    --color-card-bg: #ffffff;
+    --color-primary: #0284c7;
+    --color-primary-hover: #0369a1;
+    --color-accent: #38bdf8;
+    --gradient-primary: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-lg: 0 10px 25px -5px rgba(2, 132, 199, 0.15), 0 8px 10px -6px rgba(2, 132, 199, 0.1);
+    --radius: 1rem;
+    --space: 1.5rem;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Thanh Menu / Header cố định, hiện đại */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    max-width: 68rem;
+    margin-inline: auto;
+    padding-inline: var(--space);
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    padding: 0.25rem 0;
+    transition: color 0.3s ease;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.menu a:hover {
+    color: var(--color-primary);
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+/* Container chính */
+.container {
+    width: 100%;
+    max-width: 68rem;
+    margin-inline: auto;
+    padding-inline: var(--space);
+    padding-block: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+/* Kiểu chung cho các Section */
+section {
+    background: var(--color-card-bg);
+    padding: 2.5rem;
+    border-radius: 1.25rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    box-shadow: var(--shadow-md);
+}
+
+section h1, section h2 {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+section h1::after, section h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: var(--gradient-primary);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+/* Phần Giới thiệu */
+#gioi-thieu {
+    text-align: center;
+}
+
+#gioi-thieu p {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    max-width: 36rem;
+    margin-bottom: 1.5rem;
+    margin-inline: auto;
+}
+
+#gioi-thieu figure {
+    display: inline-block;
+    padding: 0.5rem;
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid #f1f5f9;
+}
+
+#gioi-thieu img {
+    border-radius: 1rem;
+    object-fit: cover;
+    display: block;
+    width: 160px;
+    height: 210px;
+    transition: transform 0.3s ease;
+}
+
+#gioi-thieu img:hover {
+    transform: scale(1.02);
+}
+
+#gioi-thieu figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+
+/* Phần Kỹ năng */
+#ki-nang ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+#ki-nang li {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    color: var(--color-primary);
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    border: 1px solid #bae6fd;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#ki-nang li:hover {
+    transform: translateY(-3px);
+    background: var(--gradient-primary);
+    color: #fff;
+    border-color: transparent;
+}
+
+/* Phần Dự án & Thẻ Card */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.card {
+    padding: 1.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius);
+    background-color: #fff;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-lg);
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.card h4 {
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+/* Phần Lộ trình học tập */
+#lo-trinh p {
+    text-align: center;
+    color: var(--color-text-muted);
+    margin-inline: auto;
+}
+
+#lo-trinh ol {
+    list-style: none;
+    counter-reset: step-counter;
+    max-width: 40rem;
+    margin: 1.5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+}
+
+#lo-trinh li {
+    position: relative;
+    padding: 1rem 1rem 1rem 3.5rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    text-align: left;
+    font-weight: 500;
+    color: var(--color-text);
+    transition: background 0.2s ease;
+}
+
+#lo-trinh li::before {
+    counter-increment: step-counter;
+    content: counter(step-counter);
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+#lo-trinh li:hover {
+    background: #f0f9ff;
+    border-color: #bae6fd;
+}
+
+/* Phần Liên hệ & Form */
+#lien-he form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 35rem;
+    margin: 1.5rem auto 0;
+    width: 100%;
+    text-align: left;
+}
+
+#lien-he form label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin-bottom: -0.75rem;
+}
+
+#lien-he form input[type="text"],
+#lien-he form input[type="email"],
+#lien-he form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    background-color: #f8fafc;
+    transition: all 0.3s ease;
+}
+
+#lien-he form input:focus,
+#lien-he form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+#lien-he form textarea {
+    height: 120px;       /* Tăng chiều cao textarea cho dễ nhập tin nhắn */
+    resize: vertical;    /* Cho phép kéo giãn dọc nhẹ nếu cần */
+}
+
+#lien-he form button,
+#lien-he form input[type="submit"] {
+    height: 46px;
+    border: none;
+    border-radius: 0.5rem;
+    background: var(--gradient-primary);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: opacity 0.2s ease, transform 0.1s ease;
+    margin-top: 0.5rem;
+}
+
+#lien-he form button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+#lien-he form button:active {
+    transform: translateY(0);
+}
+#lien-he form button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Chân trang (Footer) */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #1e293b;
+    color: #94a3b8;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    border-top: 1px solid #334155;
+}
+
+/* Responsive tinh chỉnh trên mobile */
+@media (max-width: 768px) {
+    .menu {
+        gap: 1rem;
+        height: auto;
+        padding: 1rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
+}

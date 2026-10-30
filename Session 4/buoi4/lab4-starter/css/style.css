@@ -1,0 +1,211 @@
+/* =========================================================
+   Portfolio CV – bản V3 (thiết kế cho màn hình laptop)
+   FIT4014 – Lab 4: bạn sẽ chuyển tệp này thành bản V4 responsive.
+   ========================================================= */
+
+/* ---------- 1. Thiết lập chung ---------- */
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Be Vietnam Pro", "Segoe UI", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #1d2733;
+  background: #f4f6f8;
+}
+
+h1, h2, h3 {
+  line-height: 1.25;
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #12457a;
+}
+
+a {
+  color: #12457a;
+}
+
+a:focus {
+  outline: none;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-alt {
+  background: #e6edf3;
+}
+
+/* ---------- 2. Đầu trang và menu ---------- */
+.site-header {
+  background: #12457a;
+  padding: 1rem 0;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 1.375rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 3. Phần giới thiệu ---------- */
+.hero {
+  background: #ffffff;
+  padding: 4rem 0;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.hero-text {
+  width: 640px;
+}
+
+.hero-role {
+  color: #4a5a6a;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  color: #12457a;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 12px 28px;
+  background: #e8a33d;
+  color: #1d2733;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.avatar {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+}
+
+/* ---------- 4. Kỹ năng ---------- */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.75rem 2rem;
+  padding-left: 1.25rem;
+}
+
+/* ---------- 5. Dự án ---------- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  border-top: 4px solid #e8a33d;
+}
+
+.card img {
+  width: 300px;
+  height: 180px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  font-size: 20px;
+}
+
+/* ---------- 6. Học tập ---------- */
+.study {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.study th,
+.study td {
+  padding: 12px 16px;
+  border: 1px solid #c9d4de;
+  text-align: left;
+}
+
+.study th {
+  background: #12457a;
+  color: #ffffff;
+}
+
+/* ---------- 7. Liên hệ và chân trang ---------- */
+.contact {
+  display: flex;
+  gap: 48px;
+  list-style: none;
+  padding: 0;
+}
+
+.site-footer {
+  background: #1d2733;
+  color: #c9d4de;
+  padding: 24px 0;
+  font-size: 15px;
+}
+
+
+@media (min-width: 640px) {
+  .skills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}

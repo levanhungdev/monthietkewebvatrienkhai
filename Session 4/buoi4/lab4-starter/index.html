@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyễn Minh An – Portfolio CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="#gioi-thieu">Minh An</a>
+      <nav aria-label="Menu chính">
+        <ul class="menu">
+          <li><a href="#gioi-thieu">Giới thiệu</a></li>
+          <li><a href="#ky-nang">Kỹ năng</a></li>
+          <li><a href="#du-an">Dự án</a></li>
+          <li><a href="#hoc-tap">Học tập</a></li>
+          <li><a href="#lien-he">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="gioi-thieu" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="hero-role">Sinh viên năm nhất, ngành Công nghệ Thông tin</p>
+          <h1>Nguyễn Minh An</h1>
+          <p>Mình thích viết những chương trình nhỏ giải quyết việc thật: tính điểm học phần, ghi chú bài giảng, trang web cho câu lạc bộ. Mục tiêu năm nay là làm chắc nền tảng C++ và xây được một ứng dụng Flutter chạy trên điện thoại.</p>
+          <a class="button" href="#du-an">Xem dự án</a>
+        </div>
+        <img class="avatar" src="assets/avatar.svg" alt="Ảnh đại diện minh họa của Minh An">
+      </div>
+    </section>
+
+    <section id="ky-nang" class="section">
+      <div class="container">
+        <h2>Kỹ năng</h2>
+        <ul class="skills">
+          <li>C++ cơ bản: hàm, mảng, struct</li>
+          <li>Python: xử lý tệp CSV</li>
+          <li>HTML5 ngữ nghĩa, CSS3</li>
+          <li>Git: commit, push lên GitHub</li>
+          <li>Flutter: widget cơ bản</li>
+          <li>Làm việc nhóm theo Scrum</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="du-an" class="section section-alt">
+      <div class="container">
+        <h2>Dự án</h2>
+        <div class="projects">
+          <article class="card">
+            <img src="assets/du-an-1.svg" alt="Giao diện dòng lệnh của chương trình tính điểm">
+            <h3>Chương trình tính điểm học phần</h3>
+            <p>Viết bằng C++, đọc điểm thành phần và tính điểm tổng kết theo trọng số của đề cương.</p>
+            <a href="#">github.com/minhan-demo/tinh-diem</a>
+          </article>
+          <article class="card">
+            <img src="assets/du-an-2.svg" alt="Màn hình danh sách ghi chú trên điện thoại">
+            <h3>Ứng dụng ghi chú bài giảng bằng Flutter</h3>
+            <p>Ghi chú theo môn học, có tìm kiếm và đánh dấu nội dung cần ôn trước kỳ thi.</p>
+            <a href="#">github.com/minhan-demo/ghi-chu</a>
+          </article>
+          <article class="card">
+            <img src="assets/du-an-3.svg" alt="Trang chủ website câu lạc bộ">
+            <h3>Website giới thiệu Câu lạc bộ Tin học Khoa Công nghệ Thông tin nhiệm kỳ 2025–2026</h3>
+            <p>Trang tĩnh giới thiệu hoạt động, lịch sinh hoạt và cách đăng ký thành viên.</p>
+            <a href="#">github.com/minhan-demo/WebsiteCauLacBoTinHocKhoaCNTT</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="hoc-tap" class="section">
+      <div class="container">
+        <h2>Học tập</h2>
+        <table class="study">
+          <thead>
+            <tr><th>Học kỳ</th><th>Học phần tiêu biểu</th><th>Sản phẩm</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>HK1</td><td>Nhập môn lập trình (C++)</td><td>Chương trình tính điểm</td></tr>
+            <tr><td>HK2</td><td>Thiết kế web (FIT4014)</td><td>Portfolio CV này</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="lien-he" class="section section-alt">
+      <div class="container">
+        <h2>Liên hệ</h2>
+        <ul class="contact">
+          <li><strong>Email:</strong> <a href="mailto:minhan.cntt.demo@example.com">minhan.cntt.demo@example.com</a></li>
+          <li><strong>GitHub:</strong> <a href="#">github.com/minhan-demo</a></li>
+          <li><strong>Lớp:</strong> CNTT – Khóa demo</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Portfolio CV – bản V3. Dữ liệu minh họa, không phải thông tin cá nhân thật.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

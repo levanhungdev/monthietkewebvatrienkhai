@@ -1,0 +1,143 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+:root {
+    --color-text: #222;
+    --color-bg: #f3f6f9;
+    --color-primary: #0997e3;
+    --space: 1rem;
+}
+body {
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+
+.container {
+    width: 100%;
+    max-width: 68rem;
+    margin-inline: auto;
+    padding-inline: var(--space);
+}
+
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3.5rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #0997e34f;
+    height: 70px;
+
+}
+.menu a{
+    text-decoration: none;
+    color: black;
+}
+.menu a:hover{
+    color: #ffffff;
+    transition: 0.3s;
+}
+
+.project-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: 1rem;
+}
+
+#gioi-thieu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+}
+
+#ki-nang{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+}
+#ki-nang ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+}
+
+#du-an{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    padding: 0;
+}
+
+#lien-he{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+}
+#lien-he form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+}
+#lien-he form textarea,
+#lien-he form button,
+#lien-he form input[type="submit"] {
+    height: 22px;       /* Chiều cao bằng với ô input mặc định của trình duyệt */
+    box-sizing: border-box; 
+    resize: none;       /* Khóa không cho kéo giãn ô tin nhắn làm lệch hàng */
+}
+
+#lo-trinh{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    background-color: #0997e34f;
+    margin-top: 40px;   
+}
+
+.card {
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid #d9e1e8;
+    border-radius: 0.75rem;
+    background-color: #fff;
+    overflow-wrap: anywhere;
+}
+.card h3 {
+    margin-top: 0;
+}

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sổ tay CSS – Bài 3: CSS cơ bản và bố cục trang</title>
+  <!-- SLIDE 9: thêm thẻ <link> tới css/style.css ngay dưới dòng này -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* h2{ color: crimson; } */
+    h3{ color: rgb(139, 130, 0); }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="#top">Sổ tay CSS – Bài 3</a>
+  <nav class="site-nav">
+    <a href="#co-ban">CSS cơ bản</a>  
+    <a href="#bai-tap">Bài tập</a>
+    <a href="#mo-hinh-hop">Mô hình hộp</a>
+    <a href="#bo-cuc">Bố cục trang</a>
+    <a href="#ghi-nho">Ghi nhớ nhanh</a>
+    <a href="#lab-3">Lab 3</a>
+    <a href="#contact">Liên hệ</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <h1>CSS cơ bản và bố cục trang</h1>
+  <p class="intro">Xin chào! Trang này hiện chỉ có HTML. Sau mỗi slide, bạn thêm một đoạn CSS vào css/style.css và trang sẽ thay đổi dần.</p>
+  <article class="card" id="about">
+    <h2>Giới thiệu</h2>
+    <p>Tôi đang học CSS.</p>
+  </article>
+  <a class="btn" href="#co-ban">Bắt đầu học</a>
+</section>
+
+<main>
+
+  <!-- =================================================== -->
+  <!-- PHẦN 1. CSS CƠ BẢN                                    -->
+  <!-- =================================================== -->
+  <h2 class="part-title" id="co-ban">Phần 1. CSS cơ bản</h2>
+
+  <section class="lesson" id="css-la-gi">
+    <p class="lesson-tag">Slide 8</p>
+    <h3>CSS là gì?</h3>
+    <p>CSS (Cascading Style Sheets) là ngôn ngữ định dạng cho tài liệu HTML. HTML quyết định trang có <strong>nội dung gì</strong>; CSS quyết định nội dung đó <strong>trông như thế nào</strong>: màu sắc, font chữ, khoảng cách, bố cục.</p>
+    <p>Tách CSS ra file riêng giúp mã dễ quản lý: một file CSS dùng cho nhiều trang, đổi giao diện không cần sửa HTML.</p>
+    <p class="task"><strong>Quan sát:</strong> trang bạn đang xem chưa có dòng CSS nào. Hãy nhớ trạng thái này để so sánh cuối buổi.</p>
+  </section>
+
+  <section class="lesson" id="cach-them-css">
+    <p class="lesson-tag">Slide 9</p>
+    <h3>Ba cách thêm CSS vào trang</h3>
+    <ol>
+      <li id="inline-demo" style="color: rebeccapurple;"><strong>Inline</strong>: viết trong thuộc tính <code>style</code> của từng thẻ. Nhanh nhưng khó bảo trì.</li>
+      <li><strong>Internal</strong>: viết trong thẻ <code>&lt;style&gt;</code> ở phần <code>&lt;head&gt;</code>. Chỉ dùng cho một trang.</li>
+      <li><strong>External</strong>: viết trong file <code>.css</code> riêng, liên kết bằng thẻ <code>&lt;link&gt;</code>. Đây là cách dùng trong môn học.</li>
+    </ol>
+<pre><code>&lt;!-- Inline --&gt;
+&lt;p style="color: red;"&gt;Xin chào!&lt;/p&gt;
+
+&lt;!-- Internal --&gt;
+&lt;style&gt;
+  h1 { color: green; }
+&lt;/style&gt;
+
+&lt;!-- External --&gt;
+&lt;link rel="stylesheet" href="css/style.css"&gt;</code></pre>
+    <div class="demo-area">
+      <p id="inline-demo">Dòng này dùng để thử inline CSS.</p>
+    </div>
+  </section>
+
+  <section class="lesson" id="quy-tac">
+    <p class="lesson-tag">Slide 10 – 12</p>
+    <h3>Quy tắc khai báo CSS</h3>
+    <p>Mỗi quy tắc gồm <strong>bộ chọn</strong> (chọn phần tử nào) và <strong>khối khai báo</strong> trong ngoặc nhọn. Mỗi khai báo có dạng <code>thuộc tính: giá trị;</code>.</p>
+<pre><code>selector {
+  property: value;
+}
+
+.card { padding: 1rem; color: #172033; }</code></pre>
+    <p>Ba loại bộ chọn cơ bản: theo thẻ (<code>p</code>), theo class (<code>.demo</code> ứng với <code>class="demo"</code>), theo id (<code>#intro</code> ứng với <code>id="intro"</code>).</p>
+    <div class="demo-area">
+      <p>Xin chào! – chọn theo thẻ p</p>
+      <p class="demo">Xin chào! – chọn theo class demo</p>
+      <p id="intro">Xin chào! – chọn theo id intro</p>
+    </div>
+  </section>
+
+  <section class="lesson" id="bo-chon">
+    <p class="lesson-tag">Slide 13, 15</p>
+    <h3>Bộ chọn và quy tắc xếp tầng</h3>
+    <ul>
+      <li><code>p</code>: chọn tất cả đoạn văn trong trang.</li>
+      <li><code>.card</code>: chọn mọi phần tử có class card, dùng lại được nhiều lần.</li>
+      <li><code>#contact</code>: chọn đúng một phần tử có id contact (id là duy nhất).</li>
+    </ul>
+    <p><strong>Cascade (xếp tầng):</strong> hai quy tắc cùng bộ chọn, cùng thuộc tính thì quy tắc viết sau được áp dụng.</p>
+<pre><code>.card { color: blue; }
+.card { color: navy; }   /* kết quả: navy */</code></pre>
+    <p class="task"><strong>Quan sát:</strong> thẻ Giới thiệu ở đầu trang (class card) và khối Liên hệ ở cuối trang (id contact).</p>
+  </section>
+
+  <section class="lesson" id="mau-sac">
+    <p class="lesson-tag">Slide 14</p>
+    <h3>Màu chữ và màu nền</h3>
+    <p><code>color</code> đổi màu chữ, <code>background-color</code> đổi màu nền. Bốn cách viết màu:</p>
+    <div class="demo-area">
+      <p class="c-named">Tên màu – color: red;</p>
+      <p class="c-hex">HEX – color: #ffa400; (mỗi cặp ký tự từ 00 đến FF)</p>
+      <p class="c-rgb">RGB – color: rgb(0, 0, 0); (mỗi kênh 0–255)</p>
+      <p class="c-rgba">RGBA – color: rgba(0, 0, 0, 0.5); (alpha 0 trong suốt, 1 đục hoàn toàn)</p>
+    </div>
+  </section>
+
+  <section class="lesson" id="devtools">
+    <p class="lesson-tag">Slide 16</p>
+    <h3>Đọc CSS bằng DevTools</h3>
+    <ol>
+      <li>Nhấn <kbd>F12</kbd> (hoặc chuột phải &gt; Inspect).</li>
+      <li>Chọn phần tử trên trang bằng biểu tượng mũi tên.</li>
+      <li>Mở tab <strong>Computed</strong> để xem giá trị CSS cuối cùng trình duyệt dùng. Tab <strong>Styles</strong> cho biết khai báo nào bị ghi đè (bị gạch ngang).</li>
+    </ol>
+  </section>
+
+  <section class="lesson" id="kich-thuoc">
+    <p class="lesson-tag">Slide 17</p>
+    <h3>Kích thước: width, height, min, max</h3>
+    <p><code>width</code>/<code>height</code> đặt kích thước; <code>min-*</code> là giới hạn dưới; <code>max-*</code> là giới hạn trên. Phần trăm của width tính theo chiều rộng khối chứa.</p>
+    <div class="demo-area">
+      <div class="box-fixed">Kích thước cố định: 300 × 120px</div>
+      <div class="box-fluid">Kích thước linh hoạt: rộng 100%, tối đa 600px, cao tối thiểu 120px</div>
+    </div>
+    <p class="task"><strong>Cùng làm:</strong> thu hẹp cửa sổ trình duyệt và so sánh hai hộp.</p>
+  </section>
+
+  <section class="lesson" id="nen">
+    <p class="lesson-tag">Slide 18</p>
+    <h3>Ảnh nền</h3>
+    <p>Năm thuộc tính: <code>background-color</code>, <code>background-image</code>, <code>background-repeat</code>, <code>background-position</code>, <code>background-size</code>. Giá trị <code>cover</code> phủ kín, có thể cắt ảnh; <code>contain</code> hiện đủ ảnh, có thể còn khoảng trống.</p>
+    <p>Đường dẫn trong <code>url()</code> tính từ vị trí file CSS, nên viết <code>url("../images/bg.jpg")</code>.</p>
+    <div class="demo-area">
+      <div class="banner"><p>Chào mừng</p></div>
+    </div>
+    <p class="task"><strong>Cùng làm:</strong> đổi cover thành contain và quan sát.</p>
+  </section>
+
+  <section class="lesson" id="don-vi">
+    <p class="lesson-tag">Slide 19</p>
+    <h3>Đơn vị đo</h3>
+    <p><code>px</code> cố định; <code>%</code> theo khối chứa; <code>em</code> theo cỡ chữ liên quan; <code>rem</code> theo cỡ chữ của thẻ html; <code>vw</code>, <code>vh</code> theo 1% chiều rộng, chiều cao khung nhìn.</p>
+    <div class="demo-area">
+      <div class="unit-box">width: 50%; padding: 1rem;</div>
+    </div>
+    <p class="task"><strong>Cùng làm:</strong> đổi width từ 50% thành 75%.</p>
+  </section>
+
+  <section class="lesson" id="em-rem">
+    <p class="lesson-tag">Slide 20</p>
+    <h3>em và rem khác nhau ở mốc tham chiếu</h3>
+    <p>Với <code>font-size</code>: <code>em</code> dựa vào cỡ chữ phần tử cha; <code>rem</code> dựa vào cỡ chữ phần tử gốc html. Với <code>padding: 1em</code>, em dựa vào cỡ chữ của chính phần tử.</p>
+    <div class="demo-area">
+      <div class="parent">
+        <p class="em">2em</p>
+        <p class="rem">2rem</p>
+      </div>
+    </div>
+    <p class="task"><strong>Cùng làm:</strong> đổi font-size của .parent thành 24px. Dòng nào thay đổi?</p>
+  </section>
+
+  <section class="lesson" id="vien">
+    <p class="lesson-tag">Slide 21</p>
+    <h3>Viền và bo góc</h3>
+    <p>Viết tắt <code>border: độ-dày kiểu màu;</code>, ví dụ <code>border: 2px solid #3157d5;</code>. Kiểu thường dùng: solid (liền), dashed (nét đứt), dotted (chấm). <code>border-radius</code> bo góc.</p>
+    <p class="task"><strong>Quan sát:</strong> thẻ Giới thiệu ở đầu trang. <strong>Cùng làm:</strong> đổi solid thành dashed rồi đổi border-radius.</p>
+  </section>
+
+  <section class="lesson" id="margin">
+    <p class="lesson-tag">Slide 22</p>
+    <h3>Margin – khoảng cách bên ngoài</h3>
+    <p>Viết 1 đến 4 giá trị theo thứ tự trên – phải – dưới – trái:</p>
+<pre><code>margin: 16px;                 /* mọi phía */
+margin: 16px 24px;            /* trên/dưới | trái/phải */
+margin: 16px 24px 32px;       /* trên | trái/phải | dưới */
+margin: 16px 24px 32px 40px;  /* trên | phải | dưới | trái */
+margin: 16px auto;            /* căn giữa khối có width */</code></pre>
+    <p>Margin dọc của hai khối liền nhau có thể gộp: 20px và 30px thành 30px, không phải 50px.</p>
+  </section>
+
+  <section class="lesson" id="padding">
+    <p class="lesson-tag">Slide 23</p>
+    <h3>Padding – khoảng cách bên trong</h3>
+    <p>Cách viết giống margin. Nền được vẽ trong vùng padding; margin nằm ngoài viền và luôn trong suốt.</p>
+    <p class="task"><strong>Cùng làm:</strong> đổi padding của thẻ Giới thiệu thành 24px 12px và quan sát.</p>
+  </section>
+
+  <section class="lesson" id="box-sizing">
+    <p class="lesson-tag">Slide 24</p>
+    <h3>box-sizing: content-box và border-box</h3>
+    <p>Cùng <code>width: 200px; padding: 20px; border: 2px solid;</code>:</p>
+    <ul>
+      <li><strong>content-box</strong> (mặc định): tổng rộng = 200 + 20 × 2 + 2 × 2 = 244px.</li>
+      <li><strong>border-box</strong>: tổng rộng = 200px, phần nội dung = 200 − 40 − 4 = 156px.</li>
+    </ul>
+    <div class="demo-area">
+      <div class="size-box content-box">content-box</div>
+      <div class="size-box border-box">border-box</div>
+    </div>
+    <p class="task"><strong>Cùng làm:</strong> nếu padding tăng lên 30px, tính lại hai trường hợp rồi kiểm tra bằng DevTools.</p>
+  </section>
+
+  <section class="lesson" id="hien-thi">
+    <p class="lesson-tag">Slide 25</p>
+    <h3>Thuộc tính display</h3>
+    <ul>
+      <li><code>block</code>: bắt đầu dòng mới, chiếm cả dòng.</li>
+      <li><code>inline</code>: nằm trên dòng chữ; width/height không có tác dụng.</li>
+      <li><code>inline-block</code>: nằm trên dòng, đặt được width/height.</li>
+      <li><code>none</code>: không hiển thị, không chiếm chỗ.</li>
+    </ul>
+    <div class="demo-area">
+      <span class="item">A</span>
+      <span class="item">B</span>
+    </div>
+  </section>
+
+  <section class="lesson" id="font-chu">
+    <p class="lesson-tag">Slide 26</p>
+    <h3>Font chữ</h3>
+<pre><code>.intro {
+  font-family: Arial, sans-serif;  /* Arial; nếu thiếu dùng sans-serif */
+  font-size: 20px;
+  font-weight: 700;                /* 400 thường, 700 đậm */
+  font-style: italic;
+  line-height: 1.5;                /* 1.5 × 20px = 30px */
+}</code></pre>
+    <p class="task"><strong>Quan sát:</strong> đoạn mở đầu ở đầu trang có class intro.</p>
+  </section>
+
+  <section class="lesson" id="van-ban">
+    <p class="lesson-tag">Slide 27</p>
+    <h3>Định dạng văn bản</h3>
+    <p><code>text-align</code> căn lề, <code>text-decoration</code> gạch chân, <code>text-transform</code> chuyển chữ hoa, <code>letter-spacing</code> giãn chữ. text-transform chỉ đổi cách hiển thị, không sửa nội dung HTML.</p>
+    <div class="demo-area">
+      <p class="text">học css</p>
+    </div>
+  </section>
+
+  <section class="lesson" id="anh">
+    <p class="lesson-tag">Slide 28</p>
+    <h3>Ảnh trong khối chứa</h3>
+    <p><code>max-width: 100%; height: auto;</code> giữ ảnh không vượt khối chứa và giữ tỷ lệ. Với khung kích thước cố định, <code>object-fit: cover</code> lấp kín (có thể cắt), <code>contain</code> hiện đủ ảnh (có thể trống).</p>
+    <div class="demo-area">
+      <img class="photo" src="images/project.jpg" alt="Ảnh dự án minh hoạ">
+      <p>object-fit: cover và object-fit: contain</p>
+      <img class="fit-cover" src="images/project.jpg" alt="Ảnh dùng object-fit cover">
+      <img class="fit-contain" src="images/project.jpg" alt="Ảnh dùng object-fit contain">
+    </div>
+  </section>
+
+  <section class="lesson" id="pseudo">
+    <p class="lesson-tag">Slide 29</p>
+    <h3>Pseudo-class và pseudo-element</h3>
+    <p><strong>Pseudo-class</strong> (một dấu <code>:</code>) chọn phần tử theo trạng thái hoặc vị trí: <code>:hover</code> khi trỏ chuột, <code>:focus</code> khi nhận focus, <code>:nth-child(2)</code> phần tử thứ hai.</p>
+    <p><strong>Pseudo-element</strong> (hai dấu <code>::</code>) tạo nội dung ảo bằng <code>::before</code>, <code>::after</code>; cần thuộc tính <code>content</code>.</p>
+    <div class="demo-area">
+      <button class="btn" type="button">Gửi</button>
+      <ul>
+        <li class="step">Mục 1</li>
+        <li class="step">Mục 2</li>
+        <li class="step">Mục 3</li>
+      </ul>
+      <p class="note">Ghi chú</p>
+    </div>
+    <p class="task"><strong>Cùng làm:</strong> rê chuột lên nút Gửi, sau đó bấm phím Tab để thấy trạng thái focus.</p>
+  </section>
+
+  <!-- =================================================== -->
+  <!-- BÀI TẬP                                               -->
+  <!-- =================================================== -->
+  <h2 class="part-title" id="bai-tap">Bài tập</h2>
+
+  <section class="lesson" id="bai-tap-1">
+    <p class="lesson-tag">Slide 30</p>
+    <h3>Bài tập 1: card giới thiệu</h3>
+    <p>Hoàn thiện thẻ Giới thiệu ở đầu trang theo yêu cầu:</p>
+    <div class="table-wrap">
+      <table class="unit-table">
+        <tr><th>Yêu cầu</th><th>Thuộc tính CSS</th></tr>
+        <tr><td>Rộng tối đa 360px</td><td><code>max-width: 360px;</code></td></tr>
+        <tr><td>Khoảng trong 24px</td><td><code>padding: 24px;</code></td></tr>
+        <tr><td>Viền 2px liền, màu #3157d5</td><td><code>border: 2px solid #3157d5;</code></td></tr>
+        <tr><td>Bo góc 12px</td><td><code>border-radius: 12px;</code></td></tr>
+        <tr><td>Nền #e8f0ff, chữ #172033</td><td><code>background-color: #e8f0ff; color: #172033;</code></td></tr>
+        <tr><td>Kích thước gồm padding và viền</td><td><code>box-sizing: border-box;</code></td></tr>
+      </table>
+    </div>
+    <p class="task"><strong>Tự kiểm tra:</strong> nội dung đủ, khoảng trong đều, viền và góc đúng, hộp không vượt khối chứa.</p>
+  </section>
+
+  <section class="lesson" id="bai-tap-2">
+    <p class="lesson-tag">Slide 31</p>
+    <h3>Bài tập 2: ảnh và chữ trong card dự án</h3>
+    <ol>
+      <li>Ảnh rộng 100%, cao 160px.</li>
+      <li>Thử object-fit: cover và contain.</li>
+      <li>Tiêu đề 24px, đậm.</li>
+      <li>Đoạn văn line-height 1.5.</li>
+      <li>Card có padding và box-sizing: border-box.</li>
+    </ol>
+    <p>Bộ chọn <code>.project img</code> chỉ chọn thẻ img nằm bên trong phần tử có class project.</p>
+    <div class="demo-area">
+      <article class="project">
+        <img src="images/project.jpg" alt="Dự án">
+        <h2>Dự án đầu tiên</h2>
+        <p>Trang giới thiệu cá nhân.</p>
+      </article>
+    </div>
+    <p class="task"><strong>Cùng làm:</strong> đổi ảnh thành images/project-wide.jpg, kiểm tra lại và ghi một lỗi đã sửa.</p>
+  </section>
+
+  <!-- =================================================== -->
+  <!-- PHẦN 2. MÔ HÌNH HỘP VÀ NGUYÊN TẮC GIAO DIỆN           -->
+  <!-- =================================================== -->
+  <h2 class="part-title" id="mo-hinh-hop">Phần 2. Mô hình hộp và nguyên tắc giao diện</h2>
+
+  <section class="lesson" id="box-model">
+    <p class="lesson-tag">Slide 33</p>
+    <h3>Mô hình hộp</h3>
+    <p>Mỗi phần tử là một hộp gồm 4 lớp, từ trong ra ngoài: <strong>content → padding → border → margin</strong>. Padding là khoảng trong, margin là khoảng ngoài.</p>
+    <div class="demo-area">
+      <div class="bm-wrap">
+        <div class="bm-box"><span>content</span></div>
+      </div>
+    </div>
+    <p class="task"><strong>Chú thích:</strong> vùng vàng là margin, viền xanh đậm là border, vùng xanh nhạt là padding, vùng trắng là content.</p>
+  </section>
+
+  <section class="lesson" id="border-box">
+    <p class="lesson-tag">Slide 34</p>
+    <h3>Áp border-box cho toàn trang</h3>
+<pre><code>*, *::before, *::after {
+  box-sizing: border-box;
+}</code></pre>
+    <p>Sau quy tắc này, width khai báo đã bao gồm padding và border. Margin vẫn nằm ngoài width.</p>
+  </section>
+
+  <section class="lesson" id="devtools-hop">
+    <p class="lesson-tag">Slide 35</p>
+    <h3>Sửa margin, padding bằng DevTools</h3>
+    <ol>
+      <li>Chọn phần tử.</li>
+      <li>Đọc padding và margin trên sơ đồ hộp trong DevTools.</li>
+      <li>Sửa thử trong DevTools, chép giá trị đúng về style.css, tải lại để kiểm tra.</li>
+    </ol>
+  </section>
+
+  <section class="lesson" id="line-height">
+    <p class="lesson-tag">Slide 36</p>
+    <h3>Khoảng cách dòng</h3>
+    <p>Khoảng cách dòng hợp lý (khoảng 1.5) giúp đoạn văn dễ đọc, nhất là khi phóng to trang.</p>
+    <div class="demo-area">
+      <p class="tight">Dòng quá chặt: Chúng ta đang sống trong một thế giới đầy cơ hội. Công nghệ mang đến nhiều cách học hỏi và kết nối. Chỉ cần kiên trì, bất kỳ ai cũng có thể tạo ra những thay đổi tích cực cho bản thân và cộng đồng.</p>
+      <p>Dòng dễ đọc: Chúng ta đang sống trong một thế giới đầy cơ hội. Công nghệ mang đến nhiều cách học hỏi và kết nối. Chỉ cần kiên trì, bất kỳ ai cũng có thể tạo ra những thay đổi tích cực cho bản thân và cộng đồng.</p>
+    </div>
+  </section>
+
+  <section class="lesson" id="mau-giao-dien">
+    <p class="lesson-tag">Slide 37</p>
+    <h3>Màu nền, màu chữ phù hợp</h3>
+    <ul>
+      <li><strong>background</strong>: làm nền, tạo không gian cho nội dung.</li>
+      <li><strong>text</strong>: chữ, tiêu đề, thông tin chính.</li>
+      <li><strong>primary</strong>: thành phần chính như menu, nút bấm, tiêu đề mục.</li>
+      <li><strong>accent</strong>: nhấn mạnh thông tin quan trọng, dùng ít.</li>
+    </ul>
+    <p>Khai báo các màu này một lần thành biến (design token) và dùng lại bằng <code>var()</code>:</p>
+<pre><code>:root {
+  --text: #172033;
+  --primary: #1f3c88;
+}
+body { color: var(--text); }</code></pre>
+  </section>
+
+  <section class="lesson" id="tuong-phan">
+    <p class="lesson-tag">Slide 38</p>
+    <h3>Tương phản màu sắc</h3>
+    <p>Chữ, liên kết và trạng thái focus cần đủ tương phản với nền để dễ đọc.</p>
+    <div class="demo-area">
+      <p class="low-contrast">Chữ tương phản thấp: màu nhạt trên nền sáng, khó đọc. <a href="#tuong-phan">Đây là một liên kết</a></p>
+      <p class="high-contrast">Chữ tương phản rõ: màu đậm trên nền sáng, dễ đọc. <a href="#tuong-phan">Đây là một liên kết</a></p>
+    </div>
+  </section>
+
+  <section class="lesson" id="don-vi-chi-tiet">
+    <p class="lesson-tag">Slide 39 – 40</p>
+    <h3>Đơn vị tương đối và tuyệt đối</h3>
+    <p>Đơn vị tương đối co giãn theo phần tử khác hoặc khung nhìn, phù hợp nhiều loại màn hình.</p>
+    <div class="table-wrap">
+      <table class="unit-table">
+        <tr><th>Đơn vị</th><th>Ý nghĩa</th></tr>
+        <tr><td>%</td><td>Tương đối so với phần tử cha</td></tr>
+        <tr><td>em</td><td>Theo font-size của phần tử cha</td></tr>
+        <tr><td>rem</td><td>Theo font-size của phần tử gốc html</td></tr>
+        <tr><td>vw</td><td>1vw = 1/100 chiều rộng khung nhìn</td></tr>
+        <tr><td>vh</td><td>1vh = 1/100 chiều cao khung nhìn</td></tr>
+        <tr><td>vmin / vmax</td><td>Giá trị nhỏ hơn / lớn hơn giữa vw và vh</td></tr>
+      </table>
+    </div>
+    <p>Đơn vị tuyệt đối có giá trị cố định, dễ gặp vấn đề khi hiển thị trên nhiều màn hình khác nhau.</p>
+    <div class="table-wrap">
+      <table class="unit-table">
+        <tr><th>Đơn vị</th><th>Ý nghĩa</th></tr>
+        <tr><td>px</td><td>1px = 1/96 inch</td></tr>
+        <tr><td>pt</td><td>1pt = 1/72 inch</td></tr>
+        <tr><td>pc</td><td>1pc = 12pt</td></tr>
+        <tr><td>cm, mm</td><td>Centimet, milimet</td></tr>
+        <tr><td>in</td><td>1in = 96px = 2.54cm</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- =================================================== -->
+  <!-- PHẦN 3. BỐ CỤC TRANG                                  -->
+  <!-- =================================================== -->
+  <h2 class="part-title" id="bo-cuc">Phần 3. Bố cục trang</h2>
+
+  <section class="lesson" id="flex-grid">
+    <p class="lesson-tag">Slide 42</p>
+    <h3>Flexbox và Grid</h3>
+    <ul>
+      <li><strong>Flexbox</strong>: sắp theo một trục (một hàng hoặc một cột). Ví dụ: menu.</li>
+      <li><strong>Grid</strong>: sắp theo hàng và cột (hai chiều). Ví dụ: danh sách card dự án.</li>
+    </ul>
+  </section>
+
+  <section class="lesson" id="flexbox-menu">
+    <p class="lesson-tag">Slide 43 – 45</p>
+    <h3>Làm menu bằng Flexbox</h3>
+    <p><code>display: flex</code> đặt trên phần tử cha; các phần tử con xếp theo trục chính (main axis, mặc định nằm ngang). Trục phụ (cross axis) vuông góc với trục chính.</p>
+<pre><code>.site-nav {
+  display: flex;
+  flex-wrap: wrap;      /* cho phép xuống dòng khi hẹp */
+  gap: .5rem 1rem;      /* khoảng cách hàng | cột */
+  align-items: center;  /* căn theo trục phụ */
+}</code></pre>
+    <p class="task"><strong>Quan sát:</strong> menu ở đầu trang. Thu hẹp cửa sổ đến khoảng 320px để kiểm tra.</p>
+  </section>
+
+  <section class="lesson" id="flex-can-chinh">
+    <p class="lesson-tag">Slide 46</p>
+    <h3>Căn chỉnh với Flexbox</h3>
+    <ul>
+      <li><code>gap</code>: khoảng cách giữa các item.</li>
+      <li><code>justify-content</code>: phân bố item trên trục chính (flex-start, center, space-between).</li>
+      <li><code>align-items</code>: căn item trên trục phụ (flex-start, center, flex-end).</li>
+    </ul>
+    <div class="demo-area">
+      <div class="flex-demo">
+        <div>Trang chủ</div>
+        <div>Sản phẩm<br>mới</div>
+        <div>Blog</div>
+        <div>Liên hệ<br>hỗ trợ<br>24/7</div>
+      </div>
+    </div>
+    <p class="task"><strong>Cùng làm:</strong> thay đổi lần lượt từng thuộc tính của .flex-demo và quan sát.</p>
+  </section>
+
+  <section class="lesson" id="grid">
+    <p class="lesson-tag">Slide 47 – 49</p>
+    <h3>Danh sách card bằng Grid</h3>
+    <p><code>grid-template-columns: repeat(2, 1fr)</code> tạo hai cột bằng nhau. <code>repeat(auto-fit, minmax(16rem, 1fr))</code> để trình duyệt tự đổi số cột theo chỗ trống mà không cần media query.</p>
+    <p>Các card cùng vai trò dùng chung một class (ví dụ <code>project-card</code>) để trình bày nhất quán.</p>
+    <p class="task"><strong>Quan sát:</strong> mục Ghi nhớ nhanh ở cuối trang.</p>
+  </section>
+
+  <section class="lesson" id="ket-hop">
+    <p class="lesson-tag">Slide 50</p>
+    <h3>Kết hợp thành một trang thống nhất</h3>
+    <p>Flexbox cho menu, Grid cho danh sách card, footer ở cuối trang. Màu, chữ và khoảng cách dùng chung một bộ token để toàn trang thống nhất.</p>
+  </section>
+
+  <!-- =================================================== -->
+  <!-- GHI NHỚ NHANH – dùng cho Grid (slide 47–49)           -->
+  <!-- =================================================== -->
+  <h2 class="part-title" id="ghi-nho">Ghi nhớ nhanh</h2>
+
+  <div class="project-list">
+    <article class="project-card">
+      <span class="card-num">1</span>
+      <h3>Quy tắc và bộ chọn</h3>
+      <p>selector { property: value; }. Thẻ, .class, #id. Quy tắc viết sau thắng khi cùng bộ chọn.</p>
+      <a href="#quy-tac">Xem lại</a>
+    </article>
+    <article class="project-card">
+      <span class="card-num">2</span>
+      <h3>Mô hình hộp</h3>
+      <p>content → padding → border → margin. Dùng box-sizing: border-box cho toàn trang.</p>
+      <a href="#box-model">Xem lại</a>
+    </article>
+    <article class="project-card">
+      <span class="card-num">3</span>
+      <h3>Đơn vị đo</h3>
+      <p>rem cho cỡ chữ và khoảng cách, % cho bề rộng, px cho viền và chi tiết nhỏ.</p>
+      <a href="#don-vi">Xem lại</a>
+    </article>
+    <article class="project-card">
+      <span class="card-num">4</span>
+      <h3>Màu và tương phản</h3>
+      <p>Bốn vai trò: background, text, primary, accent. Khai báo bằng biến trong :root.</p>
+      <a href="#mau-giao-dien">Xem lại</a>
+    </article>
+    <article class="project-card">
+      <span class="card-num">5</span>
+      <h3>Flexbox</h3>
+      <p>Một trục. display: flex, gap, flex-wrap, justify-content, align-items.</p>
+      <a href="#flexbox-menu">Xem lại</a>
+    </article>
+    <article class="project-card">
+      <span class="card-num">6</span>
+      <h3>Grid</h3>
+      <p>Hai chiều. grid-template-columns, repeat(), fr, auto-fit, minmax().</p>
+      <a href="#grid">Xem lại</a>
+    </article>
+  </div>
+
+  <!-- =================================================== -->
+  <!-- LAB 3                                                 -->
+  <!-- =================================================== -->
+  <h2 class="part-title" id="lab-3">Lab 3: từ profile V2 lên V3</h2>
+
+  <section class="lesson" id="lab-buoc">
+    <p class="lesson-tag">Slide 52 – 58</p>
+    <h3>Làm theo thứ tự để dễ sửa lỗi</h3>
+    <ol>
+      <li>Giữ nguyên V2: sao lưu thư mục, chụp ảnh màn hình "trước".</li>
+      <li>Tạo css/style.css và gắn thẻ link vào trang.</li>
+      <li>Khai báo token màu, box-sizing: border-box, khoảng cách cơ bản.</li>
+      <li>Làm menu bằng Flexbox (gap, flex-wrap).</li>
+      <li>Làm danh sách card bằng Grid và định dạng footer.</li>
+      <li>Kiểm tra ở nhiều độ rộng (rộng, vừa, 320px) và lưu minh chứng.</li>
+    </ol>
+    <h3>Minh chứng cần nộp</h3>
+    <ul>
+      <li>File css/style.css.</li>
+      <li>Ảnh V2 và V3 đặt cạnh nhau.</li>
+      <li>Ảnh kiểm tra bố cục hoặc Box Model trong DevTools ở 320px.</li>
+      <li>Một lỗi → cách sửa → ảnh kiểm tra lại.</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Liên hệ</h2>
+    <p>Gửi câu hỏi về bài học cho giảng viên qua nhóm lớp hoặc LMS.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Khoa Công nghệ Thông tin – Đại học Đại Nam. Bài 3: CSS cơ bản và bố cục trang.</p>
+</footer>
+
+</body>
+</html>

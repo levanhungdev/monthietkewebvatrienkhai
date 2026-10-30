@@ -1,0 +1,269 @@
+@charset "UTF-8";
+/* =========================================================
+   Bài tập thực hành CSS – 45 phút
+   Trang giới thiệu CLB Lập trình FIT
+   Viết CSS dưới từng nhiệm vụ. Không cần sửa index.html.
+   Lưu file (Ctrl+S) rồi tải lại trình duyệt (F5) sau mỗi nhiệm vụ.
+   ========================================================= */
+
+
+/* ---------- NHIỆM VỤ 1. THIẾT LẬP CHUNG (7 phút) ---------- */
+/* Yêu cầu:
+   - Trong :root khai báo 8 biến màu: --bg #f4f6fb, --surface #ffffff,
+     --text #1b2433, --muted #556074, --primary #0f5c63, --primary-soft
+     #e3f2f2, --accent #f2a541, --line #d6dde6.
+   - Mọi phần tử dùng box-sizing: border-box (kể cả ::before, ::after).
+   - body: bỏ margin mặc định; font Arial, dự phòng sans-serif; line-height
+     1.5; màu chữ --text; nền --bg.
+   - h1, h2, h3 dùng màu --primary, line-height 1.2. Liên kết a dùng màu
+     --primary.
+*/
+:root {
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --text: #1b2433;
+  --muted: #556074;
+  --primary: #0f5c63;
+  --primary-soft: #e3f2f2;
+  --accent: #f2a541;
+  --line: #d6dde6;
+}
+html {
+box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background-color: var(--bg);
+}
+h1, h2, h3 {
+  color: var(--primary);
+  line-height: 1.2;
+}
+a {
+  color: var(--primary);
+}
+
+
+
+/* ---------- NHIỆM VỤ 2. HEADER VÀ MENU BẰNG FLEXBOX (7 phút) ---------- */
+/* Yêu cầu:
+   - .site-header: Flexbox, cho phép xuống dòng, tên CLB và menu dạt về hai
+     đầu, căn giữa theo chiều dọc; padding 12px 24px; nền --primary.
+   - .logo: chữ trắng, đậm, cỡ 1.15rem, bỏ gạch chân.
+   - .site-nav: Flexbox, cho phép xuống dòng, khoảng cách giữa các link
+     0.25rem (hàng) 0.5rem (cột).
+   - .site-nav a: chữ trắng, bỏ gạch chân, padding 6px 12px, bo góc 6px.
+   - Khi rê chuột lên link menu, nền link chuyển thành trắng trong suốt
+     18%.
+*/
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: var(--primary);
+}
+.logo {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.15rem;
+  text-decoration: none;
+}
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+}
+.site-nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+.site-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+} 
+
+
+
+/* ---------- NHIỆM VỤ 3. PHẦN GIỚI THIỆU VÀ NÚT BẤM (7 phút) ---------- */
+/* Yêu cầu:
+   - .hero: padding 4rem 1rem, nền --surface, viền dưới 1px liền màu
+     --line, căn giữa chữ.
+   - .hero h1: cỡ 2.5rem, margin 0 0 1rem.
+   - .lead: rộng tối đa 40rem, căn giữa khối (margin 0 auto 1.5rem), cỡ chữ
+     1.15rem, màu --muted.
+   - .hero-actions: Flexbox, cho phép xuống dòng, căn giữa, khoảng cách
+     0.75rem.
+   - .btn: inline-block; padding 10px 22px; viền 2px liền --primary; bo góc
+     8px; nền --primary; chữ trắng, đậm, không gạch chân. Hover: nền
+     #0b474d.
+   - .btn-outline: nền trong suốt, chữ --primary. Hover: nền --primary-
+     soft.
+   - Liên kết khi nhận focus bằng bàn phím có viền ngoài 3px màu --accent,
+     cách 2px.
+*/
+.hero {
+  padding: 4rem 1rem;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin: 0 0 1rem;
+}
+.lead {
+  max-width: 40rem;
+  margin: 0 auto 1.5rem;
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+.btn:hover {
+  background-color: #0b474d;
+}
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary);
+}
+.btn-outline:hover {
+  background-color: var(--primary-soft);
+}
+a:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+} 
+
+
+
+/* ---------- NHIỆM VỤ 4. DANH SÁCH HOẠT ĐỘNG BẰNG GRID (9 phút) ---------- */
+/* Yêu cầu:
+   - .activity-list: Grid; các cột rộng tối thiểu 16rem và chia đều phần
+     còn lại, tự đổi số cột; khoảng cách 1.25rem.
+   - .card: padding 1.25rem; viền 1px liền --line; bo góc 12px; nền
+     --surface. Khi rê chuột, viền đổi sang --primary.
+   - .card h3: margin 0.75rem 0 0.5rem, cỡ 1.2rem. .card p: margin 0, màu
+     --muted.
+   - .tag: inline-block; padding 2px 10px; bo tròn hai đầu (border-radius
+     999px); nền #fdebd0; chữ #7a4a0c; cỡ 0.85rem; đậm.
+*/
+
+.activity-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.25rem;
+}
+.card {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background-color: var(--surface);
+}
+.card:hover {
+  border-color: var(--primary);
+}
+.card h3 {
+  margin: 0.75rem 0 0.5rem;
+  font-size: 1.2rem;
+}
+.card p {
+  margin: 0;
+  color: var(--muted);
+}
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background-color: #fdebd0;
+  color: #7a4a0c;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+
+
+/* ---------- NHIỆM VỤ 5. KHUNG TRANG, BẢNG LỊCH, KHỐI ĐĂNG KÝ, FOOTER (9 phút) ---------- */
+/* Yêu cầu:
+   - main: rộng tối đa 1000px, căn giữa, padding 1rem 1rem 3rem.
+   - .section-title: margin 2.5rem 0 1rem, cỡ 1.75rem.
+   - .table-wrap: cho phép cuộn ngang khi bảng rộng hơn khung (overflow-x:
+     auto).
+   - .schedule: rộng 100%, gộp viền ô, nền --surface. Ô th, td: padding
+     10px 14px, viền 1px liền --line, căn trái. th: nền --primary-soft, chữ
+     --primary. Hàng chẵn: nền #f8fafc.
+   - #dang-ky: margin-top 2.5rem, padding 1.5rem 2rem, bo góc 12px, nền
+     --primary-soft. Tiêu đề bên trong không có margin-top.
+   - .site-footer: padding 1.5rem 1rem, nền --primary, chữ trắng, căn giữa;
+     đoạn văn bên trong margin 0.
+*/
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem;
+}
+.section-title {
+  margin: 2.5rem 0 1rem;
+  font-size: 1.75rem;
+}
+.table-wrap {
+  overflow-x: auto;
+}
+.schedule {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--surface);
+}
+.schedule th, .schedule td {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  text-align: left;
+}
+.schedule th {
+  background-color: var(--primary-soft);
+  color: var(--primary);
+}
+.schedule tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+#dang-ky {
+  margin-top: 2.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  background-color: var(--primary-soft);
+}
+#dang-ky h2 {
+  margin-top: 0;
+}
+.site-footer {
+  padding: 1.5rem 1rem;
+  background-color: var(--primary);
+  color: #fff;
+  text-align: center;
+}
+.site-footer p {
+  margin: 0;
+} 
